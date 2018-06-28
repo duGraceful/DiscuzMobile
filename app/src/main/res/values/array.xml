@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kinds">
+        <item>美食</item>
+        <item>科技</item>
+        <item>旅游</item>
+        <item>时尚</item>
+        <item>生活</item>
+        <item>娱乐</item>
+        <item>新闻</item>
+    </string-array>
+</resources>

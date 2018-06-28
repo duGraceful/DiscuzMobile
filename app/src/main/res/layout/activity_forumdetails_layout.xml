@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nestedscrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/details_bg" />
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/back_icon"
+                android:padding="4dp" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/tv_kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:padding="4dp"
+                android:text="美食"
+                android:textColor="@color/text_clor" />
+
+            <View
+                android:layout_width="80dp"
+                android:layout_height="2dp"
+                android:layout_below="@+id/tv_kind"
+                android:background="@color/redpay_qi" />
+
+            <TextView
+                android:id="@+id/et_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20sp"
+                android:padding="4dp"
+                android:text="KiKa Kong"
+                android:textColor="@color/text_clor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_toLeftOf="@+id/tv_kind"
+                android:padding="4dp"
+                android:text="标题" />
+
+            <View
+                android:layout_width="80dp"
+                android:layout_height="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@+id/tv_kind"
+                android:layout_below="@+id/tv_kind"
+                android:background="@color/redpay_qi" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_discussion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/iv_user_img"
+            android:text="@string/_3_3_10" />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/tv_leave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="留言" />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <android.support.v7.widget.RecyclerView
+            android:paddingBottom="40dp"
+            android:id="@+id/my_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/new_home_bg"
+            android:focusable="false" />
+
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

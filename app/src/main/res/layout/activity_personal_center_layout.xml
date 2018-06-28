@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/my_bg" />
+
+                <TextView
+                    android:id="@+id/tv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/left_back"
+                    android:padding="4dp" />
+            </FrameLayout>
+            
+            <RelativeLayout
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_user_img"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    />
+                <TextView
+                    android:layout_margin="20dp"
+                    android:layout_toRightOf="@+id/iv_user_img"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/text_clor"
+                    android:layout_height="wrap_content"
+                    android:text="KiKa Kong"
+                    />
+            </RelativeLayout>
+            <View
+                android:layout_marginLeft="20dp"
+                android:layout_width="100dp"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                />
+            <TextView
+                android:layout_margin="20dp"
+                android:layout_toRightOf="@+id/iv_user_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="二十出头的时候，我成了一个素食主义者，立刻感到惊讶，我感觉到了多么的美好 - 我觉得我的新素食生活方式是多么有价值。"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_attention"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/account_pressed_true"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="关注"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_private"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="私信" />
+    </LinearLayout>
+</RelativeLayout>

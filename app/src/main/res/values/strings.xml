@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DiscuzMobile</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="_3_3_10">制作自己的羊角面包并不难，
+        没有特别的设备或难以找到的成分要求。 什么是好技术。
+        一旦你了解了如此创造多层面团的基础知识，你就可以用自己的美味羊角面包给你的朋友们喝彩了。
+        \n\n 为了制作面团，将所有的面团配料放在装有面团钩的台式搅拌机的碗中。
+        低速搅拌3分钟，如果需要的话刮一下搅拌碗的一侧。 中速混合3分钟。
+        把面团转移到一个轻轻的面粉10英寸派或平板晚餐。
+        轻轻地将面团顶部涂上，用塑料包好，以免干燥。 冷藏过夜。</string>
+
+</resources>

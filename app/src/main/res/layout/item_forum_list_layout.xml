@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_par"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    >
+
+   <LinearLayout
+       android:layout_margin="12dp"
+       android:id="@+id/item_img_bg"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+      <!-- ImageView最好自适应。 图片才不会比例失真，这里没切图片就暂时写死高度-->
+       <ImageView
+           android:id="@+id/iv_imt_bg"
+           android:scaleType="fitXY"
+           android:layout_width="match_parent"
+           android:layout_height="160dp"
+           android:src="@mipmap/default_img"
+           />
+       <RelativeLayout
+           android:layout_marginLeft="12dp"
+           android:layout_marginRight="12dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+
+           <TextView
+               android:layout_centerVertical="true"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="11月22日"
+               />
+           <com.like.LikeButton
+               android:layout_centerVertical="true"
+               android:layout_alignParentRight="true"
+               android:id="@+id/heart_button"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:icon_size="16dp"
+               app:anim_scale_factor="3"
+               app:icon_type="heart" />
+
+       </RelativeLayout>
+     <TextView
+         android:id="@+id/item_name"
+         android:layout_marginLeft="12dp"
+         android:layout_marginRight="12dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         />
+
+   </LinearLayout>
+
+</LinearLayout>

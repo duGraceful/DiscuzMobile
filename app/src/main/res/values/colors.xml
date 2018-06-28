@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="user_info_message_notice">#E35B5A</color>
+    <color name="list_divider_color">#c8c7cc</color>
+    <color name="transparent">#00000000</color>
+    <color name="line">#CCCCCC</color>
+    <color name="black">#000000</color>
+    <color name="login_line_color">#dededf</color>
+    <color name="login_input_active">#31b968</color>
+    <color name="login_other_color">#cacaca</color>
+    <color name="account_input_bg_color">#33ffffff</color>
+    <color name="account_lock_bg">#ff43815c</color>
+    <color name="account_lock_font_color">#FF68997C</color>
+    <color name="account_input_color">#c9c9c9</color>
+    <color name="account_pressed_true">#14b94d</color>
+    <color name="text_color">#2a334e</color>
+    <color name="text_hint_color">#535A71</color>
+    <color name="cb_color">#65A2F0</color>
+
+    <color name="login_line">#FF5C2B</color>
+    <color name="app_styles_main">#2A334E</color>
+    <color name="main_color">#198bff</color>
+    <color name="error_red">#c70c1e</color>
+
+
+    <color name="grey">#CCCCCC</color>
+    <!--注册模块-->
+    <color name="register_bg">#F5F5F5</color>
+    <color name="code_bg">#65A2F0</color>
+    <color name="lucency_60">#60000000</color>
+
+
+    <!--OCR-->
+    <color name="ocr_color">#12d4dc</color>
+
+    <color name="line_bottom_color">#26000000</color>
+    <color name="card_num_color">#d9000000</color>
+
+
+    <color name="viewfinder_frame">#FF5C2B</color><!-- 绿色 -->
+    <color name="viewfinder_laser">#ffffff</color><!--白色 -->
+    <color name="viewfinder_mask">#60000000</color><!-- 灰度 -->
+    <color name="result_view">#b0000000</color>
+
+
+    <color name="new_color">#12d4dc</color><!-- 透明 -->
+    <color name="white_color">#ffffffff</color><!-- 透明 -->
+    <color name="white_bg">#FFFFFF</color>
+    <color name="per_bg">#F5F5F5</color>
+    <color name="per_foni">#FF5C2B</color>
+    <color name="cocation_clor">#2A334E</color>
+    <!-- 下拉刷新时，颜色值 -->
+    <color name="swiperefresh_color1">#ff00ddff</color>
+    <color name="swiperefresh_color2">#ffffbb33</color>
+    <color name="swiperefresh_color3">#ffff4444</color>
+    <color name="swiperefresh_color4">#ffaa66cc</color>
+    <color name="borr_item_bg">#F6F4F3</color>
+    <color name="trial_s_bg">#FFEAE1</color>
+    <color name="brrow_text">#656B80</color>
+    <color name="add_brrow_bg">#FFEAE1</color>
+    <color name="add_text_clor">#FE4726</color>
+    <color name="djs_text">#6BA6F1</color>
+    <color name="lin_clor">#F5F5F5</color>
+    <color name="title_text_clor">#FF9D00</color>
+    <color name="bank_selct">#3D455F</color>
+    <color name="bank_bg">#99000000</color>
+    <color name="bank_content_bg">#9916232D</color>
+
+    <color name="main_body_text">#2A334F</color><!-- 正文文字 用于重要级文字显示-->
+    <color name="fingerprint">#666666</color><!-- 次要文字 用于提示及引导-->
+    <color name="assist_text">#9E9E9E</color><!-- 辅助文字-->
+    <color name="chekc_assist">#CCCCCC</color><!-- 点击后辅助文字-->
+    <color name="special_text">#FE581E</color><!--特殊文字 -->
+    <color name="button_text">#FFFFFF</color><!-- 按钮文字 -->
+    <color name="pop_button_text">#65A2F0</color><!--弹出字体颜色 -->
+    <color name="alter_text">#FF9D00</color><!--弹出提示性文字 -->
+    <color name="cut_lin">#D0D0D0</color><!-- 分割线背景色-->
+    <color name="bg_clor">#F5F5F5</color><!-- 背景底色-->
+    <color name="hk_tex">#7F8596</color>
+
+    <color name="states_dksb">#FE401E</color><!--失败 -->
+    <color name="states_clz">#65A2F0</color><!-- 处理中-->
+    <color name="states_com">#323B56</color><!-- 完成-->
+    <color name="make_state">#FF9C00</color>
+    <color name="item_lin">#D3D3D3</color>
+    <color name="lin_color">#D8D8D8</color>
+    <color name="text_clor">#333333</color>
+    <color name="text_clor_jf">#65A2F0</color>
+    <color name="ls_bg">#FFEFD9</color>
+    <color name="min_item_bg">#FFEAE1</color>
+    <color name="min_text_clor">#2A334E</color>
+    <color name="min_ds">#85ADE2</color>
+    <color name="ls_item_bg">#EEEEEE</color>
+    <color name="item_clie">#505050</color>
+    <color name="version_font_clor">#434A63</color>
+    <color name="redpay">#FC0C0C</color>
+
+    <color name="rep_bg">#E4E4E4</color>
+    <color name="rep_text_clor">#6D6D6D</color>
+    <color name="redpay_qi">#FC1010</color>
+    <color name="qx_text_clor">#929292</color>
+    <color name="next_bg">#FF7B40</color>
+    <color name="app_tv_black1">#333333</color>
+    <color name="home_text_hint">#808080</color>
+    <color name="line_color">#8c8c8c</color>
+    <color name="red_borrowdetails">#f9001f</color>
+    <color name="red_borrowdetails_hint_bg">#ffd7dc</color>
+    <color name="red_bt_bg">#ef4a5f</color>
+    <color name="borrow_bg">#F0EFF5</color>
+    <color name="pink_bg">#F54748</color>
+
+    <color name="borrow_text_hint">#F0EFF5</color>
+    <!--首頁-->
+    <color name="new_home_money_bg">#198bff</color>
+    <color name="new_home_bg">#F7F7F7</color>
+    <color name="new_home_money_grey_bg">#D9D9D9</color>
+    <color name="new_home_pink">#FFE8E8</color>
+    <color name="uncompleted_color">#A3E0D9</color>
+    <color name="uncompleted_text_color">#F8F8F8</color>
+    <color name="home_conpon_dalog_text_view">#ECC219</color>
+    <color name="ver_top_bt_color">#F2724E</color>
+    <!--回收-->
+    <color name="recycle_text">#101010</color>
+    <color name="recycle_text_hint">#707070</color>
+    <!--  <color name="error_red">#c70c1e</color>
+      <color name="list_divider_color">#c8c7cc</color>-->
+</resources>
