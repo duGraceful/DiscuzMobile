@@ -76,6 +76,7 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initData() {
+        sp = getSharedPreferences("kind", Context.MODE_PRIVATE);
         list = new ArrayList<>();
         // 获取分类数据
         getKindsData();
@@ -98,9 +99,9 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
     }
 
     private void getKindsData() {
-        sp = getSharedPreferences("kind", Context.MODE_PRIVATE);
+
         Bundle data = getIntent().getBundleExtra("data");
-        title = sp.getString("kindName", data.getString("title"));
+        title =data.getString("title");
         Log.e("geek", title);
         tvTitle.setText(title);
         String url = "http://112.74.57.49:8080/discussion/discuss/selectByKind";

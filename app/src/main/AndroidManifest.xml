@@ -101,6 +101,9 @@
         <activity
             android:name=".activity.PublishDiscussionActivity"
             android:label="发表" />
+        <activity
+            android:name=".activity.PeopleForumListActivity"
+            android:label="个人论坛列表" />
     </application>
 
 </manifest>

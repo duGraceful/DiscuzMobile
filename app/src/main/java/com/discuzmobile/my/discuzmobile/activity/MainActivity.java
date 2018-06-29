@@ -224,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
                 break;
             case R.id.iv_user_personage:
                 Toast.makeText(this, "个人", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,PeopleForumListActivity.class));
                 break;
             case R.id.iv_user_square:
                 Toast.makeText(this, "广场", Toast.LENGTH_SHORT).show();

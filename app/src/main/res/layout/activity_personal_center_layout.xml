@@ -11,7 +11,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -29,31 +30,35 @@
                     android:drawableLeft="@mipmap/left_back"
                     android:padding="4dp" />
             </FrameLayout>
-            
+
             <RelativeLayout
-                android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="0.16">
+
                 <ImageView
                     android:id="@+id/iv_user_img"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    />
+                    android:layout_height="100dp" />
+
                 <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:layout_toRightOf="@+id/iv_user_img"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/text_clor"
-                    android:layout_height="wrap_content"
                     android:text="KiKa Kong"
-                    />
+                    android:textColor="@color/text_clor" />
             </RelativeLayout>
+
             <View
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
-                android:layout_width="100dp"
+                android:layout_width="102dp"
                 android:layout_height="0.5dp"
                 android:background="@color/line"
-                />
+                android:layout_weight="0.29" />
             <TextView
                 android:layout_margin="20dp"
                 android:layout_toRightOf="@+id/iv_user_img"

@@ -1,5 +1,7 @@
 package com.discuzmobile.my.discuzmobile.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -30,6 +32,10 @@ public class PersonalCenterActivity extends AppCompatActivity {
     TextView tvAttention;
     @BindView(R.id.tv_private)
     TextView tvPrivate;
+    @BindView(R.id.tv_user_name)
+    TextView tvUserName;
+
+    private SharedPreferences sp;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -43,8 +49,10 @@ public class PersonalCenterActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        sp = getSharedPreferences("User", Context.MODE_PRIVATE);
+        tvUserName.setText(sp.getString("userName","给自己起个名字吧"));
         Glide.with(this)
-                .load(R.mipmap.user_icon)
+                .load(sp.getString("headPicture",R.mipmap.user_icon+""))
                 .bitmapTransform(new RoundedCornersTransformation(this, 20, 0))
                 .into(ivUserImg);
     }
