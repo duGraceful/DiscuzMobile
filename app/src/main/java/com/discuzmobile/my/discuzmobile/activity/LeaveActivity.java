@@ -17,6 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.discuzmobile.my.discuzmobile.activity.ForumDetailsActivity.DETAILS_CODE;
+
 /**
  * 留言页面
  */
@@ -53,11 +55,14 @@ public class LeaveActivity extends AppCompatActivity {
     @OnClick({R.id.tv_back, R.id.tv_kind, R.id.tv_bt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+
             case R.id.tv_back:
                 finish();
                 break;
+
             case R.id.tv_kind:
                 break;
+
             case R.id.tv_bt:
                 if (TextUtils.isEmpty(edContent.getText().toString().trim())) {
                     Toast.makeText(this, "内容不能为空", Toast.LENGTH_SHORT).show();
@@ -65,7 +70,7 @@ public class LeaveActivity extends AppCompatActivity {
                 }
                 Intent intent = new Intent();
                 intent.putExtra("content", edContent.getText().toString().trim());
-                setResult(100, intent);
+                setResult(DETAILS_CODE, intent);
                 finish();
                 break;
         }

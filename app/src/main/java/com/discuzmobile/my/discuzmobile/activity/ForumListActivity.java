@@ -80,7 +80,7 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
         getKindsData();
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

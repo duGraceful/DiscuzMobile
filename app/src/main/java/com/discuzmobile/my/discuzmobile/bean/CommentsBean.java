@@ -2,15 +2,24 @@ package com.discuzmobile.my.discuzmobile.bean;
 
 import java.io.Serializable;
 
-/**
- * Created by DELL on 2018/5/7.
- */
-
 public class CommentsBean implements Serializable {
-    private String userImgUrl; //用户头像路径
-    private String content;//用户评论消息
-    private String username; // 用户姓名
-    private String replyUser; // 作者回复消息
+
+    /**
+     * 用户头像路径
+     */
+    private String userImgUrl;
+    /**
+     * 用户评论消息
+     */
+    private String content;
+    /**
+     * 用户姓名
+     */
+    private String username;
+    /**
+     * 作者回复消息
+     */
+    private String replyUser;
 
     public CommentsBean(String userImgUrl, String content, String username, String replyUser) {
         this.userImgUrl = userImgUrl;

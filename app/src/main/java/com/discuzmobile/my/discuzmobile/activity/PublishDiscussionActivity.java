@@ -55,9 +55,8 @@ public class PublishDiscussionActivity extends AppCompatActivity {
     @BindView(R.id.tv_back)
     TextView tvBack;
 
-    //声明Sharedpreferenced对象
+    // 声明SharedPreference对象
     private SharedPreferences sp;
-    private Long kindId;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
