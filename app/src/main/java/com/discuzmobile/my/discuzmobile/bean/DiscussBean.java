@@ -1,12 +1,6 @@
 package com.discuzmobile.my.discuzmobile.bean;
 
-import java.io.Serializable;
-
-/**
- * Created by DELL on 2018/5/7.
- */
-
-public class  DiscussBean {
+public class DiscussBean {
     private Long discuzId;
     private Long userId;
     private Long kindId;
@@ -14,6 +8,7 @@ public class  DiscussBean {
     private String discussion;
     private Long reportTime;
     private String image;
+    private String kindName;
 
     public Long getDiscuzId() {
         return discuzId;
@@ -71,6 +66,14 @@ public class  DiscussBean {
         this.image = image;
     }
 
+    public String getKindName() {
+        return kindName;
+    }
+
+    public void setKindName(String kindName) {
+        this.kindName = kindName;
+    }
+
     @Override
     public String toString() {
         return "DiscussBean{" +
@@ -81,6 +84,7 @@ public class  DiscussBean {
                 ", discussion='" + discussion + '\'' +
                 ", reportTime=" + reportTime +
                 ", image='" + image + '\'' +
+                ", kindName='" + kindName + '\'' +
                 '}';
     }
 }

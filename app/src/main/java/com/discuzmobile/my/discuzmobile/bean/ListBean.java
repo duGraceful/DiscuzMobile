@@ -6,6 +6,7 @@ public class ListBean {
     private String url;
     private Long time;
     private String discussion;
+    private String kindName;
 
     public ListBean(String name, String url) {
         this.name = name;
@@ -24,6 +25,15 @@ public class ListBean {
         this.url = url;
         this.time = time;
         this.discussion = discussion;
+    }
+
+    public ListBean(Long id, String name, String url, Long time, String discussion, String kindName) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.time = time;
+        this.discussion = discussion;
+        this.kindName = kindName;
     }
 
     public ListBean(Long id, String name, String url, Long time) {
@@ -71,5 +81,13 @@ public class ListBean {
 
     public void setDiscussion(String discussion) {
         this.discussion = discussion;
+    }
+
+    public String getKindName() {
+        return kindName;
+    }
+
+    public void setKindName(String kindName) {
+        this.kindName = kindName;
     }
 }

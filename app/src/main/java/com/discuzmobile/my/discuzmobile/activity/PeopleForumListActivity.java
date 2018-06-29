@@ -96,7 +96,6 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
     }
 
     private void getKindsData() {
-        Log.i("文件", sp.toString());
         title = sp.getString("userName", "个人论坛列表");
         tvTitle.setText(title);
 
@@ -133,10 +132,11 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
                                     }.getType());
 
                             for (DiscussBean discussBean : discussBeanList) {
-                                list.add(new ListBean(discussBean.getDiscuzId(), discussBean.getTitle(),
-                                        discussBean.getImage(), discussBean.getReportTime(), discussBean.getDiscussion()));
+                                list.add(new ListBean(discussBean.getDiscuzId(), discussBean.getTitle(), discussBean.getImage(),
+                                                discussBean.getReportTime(), discussBean.getDiscussion(), discussBean.getKindName()
+                                        )
+                                );
                             }
-
                         }
                     }
                 }
@@ -150,7 +150,6 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
     @Override
     public void OnItemClickListener(View view, int position, Object obj) {
         ListBean listBean = (ListBean) obj;
-        Bundle dataTemp = getIntent().getBundleExtra("data");
         Intent intent = new Intent(PeopleForumListActivity.this, ForumDetailsActivity.class);
         Bundle data = new Bundle();
         data.putLong("discussId", listBean.getId());
@@ -158,8 +157,7 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
         data.putString("title", listBean.getName());
         data.putString("image", listBean.getUrl());
         data.putLong("time", listBean.getTime());
-        data.putString("kind", dataTemp.getString(""));
-        data.putLong("userID", sp.getLong("userId", 0L));
+        data.putString("kind", listBean.getKindName());
         intent.putExtra("data", data);
 
         startActivity(intent);
