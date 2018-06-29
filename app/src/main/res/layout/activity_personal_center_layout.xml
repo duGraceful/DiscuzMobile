@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/sv_personal_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -13,6 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="1">
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -42,8 +44,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp" />
 
-                <TextView
-                    android:id="@+id/tv_user_name"
+                <EditText
+                    android:id="@+id/et_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -53,19 +55,19 @@
             </RelativeLayout>
 
             <View
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
                 android:layout_width="102dp"
                 android:layout_height="0.5dp"
-                android:background="@color/line"
-                android:layout_weight="0.29" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.29"
+                android:background="@color/line" />
+
             <TextView
-                android:layout_margin="20dp"
-                android:layout_toRightOf="@+id/iv_user_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="二十出头的时候，我成了一个素食主义者，立刻感到惊讶，我感觉到了多么的美好 - 我觉得我的新素食生活方式是多么有价值。"
-                />
+                android:layout_margin="20dp"
+                android:layout_toRightOf="@+id/iv_user_img"
+                android:text="二十出头的时候，我成了一个素食主义者，立刻感到惊讶，我感觉到了多么的美好 - 我觉得我的新素食生活方式是多么有价值。" />
         </LinearLayout>
     </ScrollView>
 

@@ -97,21 +97,25 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initData() {
         list = new ArrayList<>();
-
-        SharedPreferences sp = getSharedPreferences("User", Context.MODE_PRIVATE);
-        ivUserName.setText(sp.getString("userName", "你还没登录哦"));
-        ivUserMail.setText(sp.getString("email", "....."));
-
-        Glide.with(this)
-                .load(sp.getString("headPicture", "http://suo.im/560IXb"))
-                .bitmapTransform(new RoundedCornersTransformation(this, 20, 0))
-                .into(ivUserImg);
-
         // 获取分类数据
         getKindsData();
 
+        SharedPreferences sp = getSharedPreferences("User", Context.MODE_PRIVATE);
+        ivUserName.setText(sp.getString("userName", "给自己起个名字吧"));
+        ivUserMail.setText(sp.getString("email", "....."));
+
+        String headPicture = sp.getString("headPicture", "http://112.74.57.49:88/img/1530271655236.png");
+        if (headPicture.trim().length() == 0) {
+            headPicture = "http://112.74.57.49:88/img/1530271655236.png";
+        }
+
+        Glide.with(this)
+                .load(headPicture)
+                .bitmapTransform(new RoundedCornersTransformation(this, 20, 0))
+                .into(ivUserImg);
+
         try {
-            Thread.sleep(1000);
+            Thread.sleep(600);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -231,6 +235,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
 
     @Override
     public void onRefresh() {
+        // Android 数据不是双向绑定的, 有些数据需要刷新重新载入
+        SharedPreferences sp = getSharedPreferences("User", Context.MODE_PRIVATE);
+        ivUserName.setText(sp.getString("userName", "给自己起个名字吧"));
+
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 swiperefreshlayout.setRefreshing(false);
