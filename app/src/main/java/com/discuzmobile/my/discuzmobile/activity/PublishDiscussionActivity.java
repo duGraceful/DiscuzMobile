@@ -14,15 +14,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.discuzmobile.my.discuzmobile.R;
 import com.discuzmobile.my.discuzmobile.bean.DiscussBean;
-import com.discuzmobile.my.discuzmobile.bean.KindBean;
 import com.discuzmobile.my.discuzmobile.bean.ResponseBean;
-import com.discuzmobile.my.discuzmobile.bean.UserBean;
 import com.discuzmobile.my.discuzmobile.widget.JsonUtils;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -70,7 +67,7 @@ public class PublishDiscussionActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.iv_pub_img, R.id.tv_publish,R.id.tv_back})
+    @OnClick({R.id.iv_pub_img, R.id.tv_publish, R.id.tv_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_pub_img:
@@ -84,7 +81,7 @@ public class PublishDiscussionActivity extends AppCompatActivity {
                 getKindIdByName(spKind.getSelectedItem().toString());
                 break;
             case R.id.tv_back:
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
         }
     }
@@ -150,7 +147,6 @@ public class PublishDiscussionActivity extends AppCompatActivity {
         map.put("userId", userId);
         map.put("discussion", etContent.getText().toString());
 
-
         OkHttpUtils
                 .postString()
                 .url(url)
@@ -171,9 +167,9 @@ public class PublishDiscussionActivity extends AppCompatActivity {
                             if (100 == responseBean.getCode()) {
                                 String body = responseBean.getBody().toString();
                                 DiscussBean discussBean = new Gson().fromJson(body, DiscussBean.class);
-                                Intent intent = new Intent(PublishDiscussionActivity.this,ForumListActivity.class);
+                                Intent intent = new Intent(PublishDiscussionActivity.this, ForumListActivity.class);
                                 Bundle data = new Bundle();
-                                data.putString("kindName",spKind.getSelectedItem().toString());
+                                data.putString("kindName", spKind.getSelectedItem().toString());
                                 data.putLong("kindId", discussBean.getKindId());
                                 intent.putExtra("data", data);
                                 startActivity(intent);

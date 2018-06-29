@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,9 +17,6 @@ import com.bumptech.glide.Glide;
 import com.discuzmobile.my.discuzmobile.R;
 import com.discuzmobile.my.discuzmobile.app.RecyclerItemOnClickListener;
 import com.discuzmobile.my.discuzmobile.bean.CommentsBean;
-import com.discuzmobile.my.discuzmobile.bean.ListBean;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -88,7 +84,7 @@ public class LeaveWordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             @Override
             public void onClick(View v) {
                 if (mRecyclerItemOnClickListener != null) {
-                    mRecyclerItemOnClickListener.OnItemClickLinstener(null, position, mLists.get(position));
+                    mRecyclerItemOnClickListener.OnItemClickListener(null, position, mLists.get(position));
                 }
             }
         });

@@ -126,6 +126,7 @@
     <!--回收-->
     <color name="recycle_text">#101010</color>
     <color name="recycle_text_hint">#707070</color>
+    <color name="launch_color">#0B1D40</color>
     <!--  <color name="error_red">#c70c1e</color>
       <color name="list_divider_color">#c8c7cc</color>-->
 </resources>

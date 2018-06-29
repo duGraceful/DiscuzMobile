@@ -2,13 +2,12 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/nestedscrollview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <FrameLayout
@@ -36,7 +35,7 @@
             android:layout_margin="20dp">
 
             <TextView
-                android:id="@+id/tv_kind"
+                android:id="@+id/et_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
@@ -47,34 +46,40 @@
             <View
                 android:layout_width="80dp"
                 android:layout_height="2dp"
-                android:layout_below="@+id/tv_kind"
+                android:layout_below="@+id/et_title"
+                android:background="@color/redpay_qi" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="85dp"
+                android:layout_height="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@+id/et_title"
+                android:layout_below="@+id/et_title"
                 android:background="@color/redpay_qi" />
 
             <TextView
-                android:id="@+id/et_title"
+                android:id="@+id/tv_kind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/view3"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="20sp"
                 android:padding="4dp"
                 android:text="KiKa Kong"
                 android:textColor="@color/text_clor" />
 
             <TextView
+                android:id="@+id/et_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
-                android:layout_toLeftOf="@+id/tv_kind"
-                android:padding="4dp"
-                android:text="标题" />
-
-            <View
-                android:layout_width="80dp"
-                android:layout_height="2dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignRight="@+id/tv_kind"
-                android:layout_below="@+id/tv_kind"
-                android:background="@color/redpay_qi" />
+                android:layout_alignTop="@+id/view3"
+                android:padding="4dp"
+                android:text="2018-06-29"
+                android:textColor="@color/text_clor"
+                android:textSize="10sp" />
         </RelativeLayout>
 
         <TextView
@@ -86,7 +91,6 @@
             android:text="@string/_3_3_10" />
 
         <View
-
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/line" />
@@ -100,22 +104,18 @@
             android:text="留言" />
 
         <View
-
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/line" />
 
         <android.support.v7.widget.RecyclerView
-            android:paddingBottom="40dp"
             android:id="@+id/my_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/new_home_bg"
-            android:focusable="false" />
-
-
+            android:focusable="false"
+            android:paddingBottom="40dp" />
 
     </LinearLayout>
-
 
 </android.support.v4.widget.NestedScrollView>

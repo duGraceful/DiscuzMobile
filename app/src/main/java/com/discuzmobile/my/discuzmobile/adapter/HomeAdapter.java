@@ -21,8 +21,6 @@ import java.util.List;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
-import static android.support.design.R.styleable.RecyclerView;
-
 /**
  * Created by
  */
@@ -80,7 +78,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             @Override
             public void onClick(View v) {
                 if (mRecyclerItemOnClickListener != null) {
-                    mRecyclerItemOnClickListener.OnItemClickLinstener(null, position, mLists.get(position));
+                    mRecyclerItemOnClickListener.OnItemClickListener(null, position, mLists.get(position));
                 }
             }
         });

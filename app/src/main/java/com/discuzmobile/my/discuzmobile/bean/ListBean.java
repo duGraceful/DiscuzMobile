@@ -1,11 +1,5 @@
 package com.discuzmobile.my.discuzmobile.bean;
 
-import java.util.Date;
-
-/**
- * Created by DELL on 2018/5/7.
- */
-
 public class ListBean {
     private Long id;
     private String name;

@@ -8,7 +8,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 
 import com.discuzmobile.my.discuzmobile.R;
-import com.discuzmobile.my.discuzmobile.app.MyApplication;
 import com.discuzmobile.my.discuzmobile.app.SharedInfo;
 
 /**
@@ -21,11 +20,10 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_start);
-        initDatas();
+        initData();
     }
 
-
-    protected void initDatas() {
+    protected void initData() {
         new Thread(new MyThread()).start();
     }
 
@@ -33,11 +31,10 @@ public class LaunchActivity extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                Thread.sleep(3000);
-                Intent intent = null;
+                Thread.sleep(1000);
+                Intent intent;
 //                Bundle data = getIntent().getBundleExtra("data");
 //                Long id = data.getLong("userId");
-
 
                 if (SharedInfo.getInstance().getLastLogin()) {
                     intent = new Intent(LaunchActivity.this, MainActivity.class);
@@ -46,7 +43,6 @@ public class LaunchActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
                 finish();
-
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -57,7 +57,6 @@ public class PersonalCenterActivity extends AppCompatActivity {
                 .into(ivUserImg);
     }
 
-
     @OnClick({R.id.tv_back, R.id.tv_attention, R.id.tv_private})
     public void onViewClicked(View view) {
         switch (view.getId()) {

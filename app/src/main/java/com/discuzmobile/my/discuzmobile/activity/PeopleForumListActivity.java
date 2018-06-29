@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.discuzmobile.my.discuzmobile.R;
-import com.discuzmobile.my.discuzmobile.adapter.ForumListdapter;
+import com.discuzmobile.my.discuzmobile.adapter.ForumListAdapter;
 import com.discuzmobile.my.discuzmobile.app.RecyclerItemOnClickListener;
 import com.discuzmobile.my.discuzmobile.bean.DiscussBean;
 import com.discuzmobile.my.discuzmobile.bean.ListBean;
@@ -52,11 +52,10 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
     @BindView(R.id.title)
     TextView tvTitle;
     @BindView(R.id.my_recyclerview)
-    RecyclerView myRecyclerview;
+    RecyclerView myRecyclerView;
     @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout swiperefreshlayout;
     private ArrayList<ListBean> list;
-    private ForumListdapter homeAdapter;
     private String title;
     private SharedPreferences sp;
 
@@ -74,8 +73,8 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initData() {
-        sp = getSharedPreferences("User", Context.MODE_PRIVATE);
         list = new ArrayList<>();
+        sp = getSharedPreferences("User", Context.MODE_PRIVATE);
         // 获取分类数据
         getKindsData();
 
@@ -85,26 +84,26 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
             e.printStackTrace();
         }
 
-        homeAdapter = new ForumListdapter(this, list);
-        if (myRecyclerview instanceof RecyclerView) {
-            myRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+        ForumListAdapter homeAdapter = new ForumListAdapter(this, list);
+        if (myRecyclerView instanceof RecyclerView) {
+            myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2);
-            myRecyclerview.setLayoutManager(mGridLayoutManager);
-            myRecyclerview.setItemAnimator(new DefaultItemAnimator());
-            myRecyclerview.setAdapter(homeAdapter);
+            myRecyclerView.setLayoutManager(mGridLayoutManager);
+            myRecyclerView.setItemAnimator(new DefaultItemAnimator());
+            myRecyclerView.setAdapter(homeAdapter);
         }
         homeAdapter.setOnItemLinener(this);
     }
 
     private void getKindsData() {
-        Log.i("文件",sp.toString());
-        title = sp.getString("userName","个人论坛列表");
-        Log.e("geek", title);
+        Log.i("文件", sp.toString());
+        title = sp.getString("userName", "个人论坛列表");
         tvTitle.setText(title);
+
         String url = "http://112.74.57.49:8080/discussion/discuss/selectByUserId";
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
-                .add("id", sp.getLong("userId",000L)+"" )
+                .add("id", sp.getLong("userId", 0L) + "")
                 .build();
 
         final Request request = new Request.Builder()
@@ -137,12 +136,10 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
                                 list.add(new ListBean(discussBean.getDiscuzId(), discussBean.getTitle(),
                                         discussBean.getImage(), discussBean.getReportTime(), discussBean.getDiscussion()));
                             }
-                            // 解析数据
 
                         }
                     }
                 }
-                Log.e("GET_DISCUSS_BY_KIND", "登录失败: " + response.message());
             }
         });
     }
@@ -151,9 +148,9 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
      * item监听
      */
     @Override
-    public void OnItemClickLinstener(View view, int postion, Object obj) {
+    public void OnItemClickListener(View view, int position, Object obj) {
         ListBean listBean = (ListBean) obj;
-        Bundle data1 = getIntent().getBundleExtra("data");
+        Bundle dataTemp = getIntent().getBundleExtra("data");
         Intent intent = new Intent(PeopleForumListActivity.this, ForumDetailsActivity.class);
         Bundle data = new Bundle();
         data.putLong("discussId", listBean.getId());
@@ -161,10 +158,9 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
         data.putString("title", listBean.getName());
         data.putString("image", listBean.getUrl());
         data.putLong("time", listBean.getTime());
-        data.putString("kind", title);
-        data.putLong("userID", sp.getLong("userId",000L));
+        data.putString("kind", dataTemp.getString(""));
+        data.putLong("userID", sp.getLong("userId", 0L));
         intent.putExtra("data", data);
-
 
         startActivity(intent);
     }
@@ -188,9 +184,6 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
                 swiperefreshlayout.setRefreshing(false);
             }
         }, 2000);
-
-
     }
-
 
 }

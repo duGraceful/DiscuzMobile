@@ -1,5 +1,6 @@
 package com.discuzmobile.my.discuzmobile.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,8 +21,11 @@ import com.discuzmobile.my.discuzmobile.R;
 import com.discuzmobile.my.discuzmobile.adapter.LeaveWordAdapter;
 import com.discuzmobile.my.discuzmobile.bean.CommentsBean;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +39,6 @@ public class ForumDetailsActivity extends AppCompatActivity {
 
     private static final int DETAILS_CODE = 100;
 
-
     @BindView(R.id.iv_image)
     ImageView ivImage;
     @BindView(R.id.tv_back)
@@ -44,15 +47,18 @@ public class ForumDetailsActivity extends AppCompatActivity {
     TextView tvKind;
     @BindView(R.id.et_title)
     TextView tvTitle;
+    @BindView(R.id.et_time)
+    TextView etTime;
     @BindView(R.id.tv_discussion)
     TextView tvDiscussion;
     @BindView(R.id.my_recyclerview)
-    RecyclerView myRecyclerview;
+    RecyclerView myRecyclerView;
     @BindView(R.id.nestedscrollview)
     NestedScrollView nestedscrollview;
     @BindView(R.id.tv_leave)
     TextView tvLeave;
-    List<CommentsBean> list = new ArrayList<>();
+
+    private List<CommentsBean> list = new ArrayList<>();
     private LeaveWordAdapter leaveWordAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -71,19 +77,21 @@ public class ForumDetailsActivity extends AppCompatActivity {
         tvKind.setText(data.getString("kind"));
         tvTitle.setText(data.getString("title"));
         tvDiscussion.setText(data.getString("discussion"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        String sd = sdf.format(new Date(data.getLong("time")));
+        etTime.setText(sd);
 
         Glide.with(this)
                 .load(data.getString("image"))
-                .bitmapTransform(new RoundedCornersTransformation(this,20,0))
+                .bitmapTransform(new RoundedCornersTransformation(this, 20, 0))
                 .into(ivImage);
-
 
         nestedscrollview.smoothScrollTo(0, 20);
         leaveWordAdapter = new LeaveWordAdapter(this, list);
-        if (myRecyclerview instanceof RecyclerView) {
-            myRecyclerview.setLayoutManager(new LinearLayoutManager(this));
-            myRecyclerview.setItemAnimator(new DefaultItemAnimator());
-            myRecyclerview.setAdapter(leaveWordAdapter);
+        if (myRecyclerView instanceof RecyclerView) {
+            myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            myRecyclerView.setItemAnimator(new DefaultItemAnimator());
+            myRecyclerView.setAdapter(leaveWordAdapter);
         }
     }
 
@@ -96,12 +104,15 @@ public class ForumDetailsActivity extends AppCompatActivity {
         if (requestCode == DETAILS_CODE) {
             if (data != null) {
                 if (!TextUtils.isEmpty(data.getStringExtra("content"))) {
+
                     String content = data.getStringExtra("content");
-                    list.add(new CommentsBean("http://img3.imgtn.bdimg.com/it/u=2118406629,4247500702&fm=27&gp=0.jpg", content, "王道远", "留个毛线言"));
+                    String userName = getSharedPreferences("User", Context.MODE_PRIVATE).getString("userName", "未登录用户");
+                    String imgUrl = getSharedPreferences("User", Context.MODE_PRIVATE).getString("headPicture", "http://suo.im/560IXb");
+
+                    list.add(new CommentsBean(imgUrl, content, userName, "谢谢支持~~~"));
                     leaveWordAdapter.setBorrwList(list);
                 }
             }
-
         }
     }
 
