@@ -20,7 +20,6 @@ import javax.net.ssl.SSLSession;
 
 import okhttp3.OkHttpClient;
 
-
 public class MyApplication extends Application {
     //分支测试11
     private Boolean isLogin = false;
@@ -63,9 +62,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         isLogin = false;
-        /***
-         * 初始化定位sdk，建议在Application中创建
-         */
+        // 初始化定位sdk，建议在Application中创建
         instance = this;
         mVibrator = (Vibrator) getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
         // SDKInitializer.initialize(getApplicationContext());
@@ -108,17 +105,11 @@ public class MyApplication extends Application {
                 break;
             case TRIM_MEMORY_COMPLETE://表示 App 退出到后台，并且已经处于 LRU List 比较考靠前的位置，并且手机内存已经极低，随时都有可能被系统杀掉。
                 break;
-
-
         }
-
     }
-
 
     /**
      * 获取屏幕宽度
-     *
-     * @return
      */
     public int getScreenWidth() {
         return this.mScreenWidth;

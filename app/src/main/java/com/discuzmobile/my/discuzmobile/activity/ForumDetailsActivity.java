@@ -22,6 +22,7 @@ import com.discuzmobile.my.discuzmobile.R;
 import com.discuzmobile.my.discuzmobile.adapter.LeaveWordAdapter;
 import com.discuzmobile.my.discuzmobile.bean.CommentsBean;
 import com.discuzmobile.my.discuzmobile.bean.ResponseBean;
+import com.discuzmobile.my.discuzmobile.utils.ApplicationToastUtil;
 import com.discuzmobile.my.discuzmobile.widget.JsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -172,7 +173,15 @@ public class ForumDetailsActivity extends AppCompatActivity {
                         if (responseBean != null) {
                             if (100 == responseBean.getCode()) {
                                 Log.i("COMMENT", "评论成功: " + response);
-                                // Toast.makeText(ForumDetailsActivity.class, "评论成功!", Toast.LENGTH_SHORT).show();
+                                // 主线程更新UI
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ApplicationToastUtil.showToastSimple("评论成功!");
+                                    }
+                                });
+
+                                // TODO leaveWordAdapter.notifyItemRangeChanged();
                                 return;
                             }
                         }
