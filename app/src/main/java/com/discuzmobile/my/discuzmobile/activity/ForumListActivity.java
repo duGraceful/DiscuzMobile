@@ -54,6 +54,8 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
     @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout swiperefreshlayout;
 
+    private ForumListAdapter homeAdapter;
+
     private List<ListBean> list;
     private static Bundle bundlePrevious;
 
@@ -79,14 +81,8 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
         // 获取分类数据
         getKindsData();
 
-        try {
-            Thread.sleep(800);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         // 给适配器数据 && 最后设置点击事件
-        ForumListAdapter homeAdapter = new ForumListAdapter(this, list);
+        homeAdapter = new ForumListAdapter(this, list);
         if (myRecyclerView instanceof RecyclerView) {
             myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2);
@@ -136,6 +132,13 @@ public class ForumListActivity extends AppCompatActivity implements RecyclerItem
                                 list.add(new ListBean(discussBean.getDiscuzId(), discussBean.getTitle(),
                                         discussBean.getImage(), discussBean.getReportTime(), discussBean.getDiscussion()));
                             }
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    homeAdapter.notifyDataSetChanged();
+                                }
+                            });
                         }
                     }
                 }

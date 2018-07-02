@@ -138,7 +138,7 @@ public class PublishDiscussionActivity extends AppCompatActivity {
      */
     private void publish(Long kindId) {
         sp = getSharedPreferences("User", Context.MODE_PRIVATE);
-        Long userId = sp.getLong("userId", 000L);
+        Long userId = sp.getLong("userId", 0L);
         String url = "http://112.74.57.49:8080/discussion/discuss/publishDiscuss";
         Map<String, Object> map = new HashMap<>();
         map.put("title", etTitle.getText().toString());

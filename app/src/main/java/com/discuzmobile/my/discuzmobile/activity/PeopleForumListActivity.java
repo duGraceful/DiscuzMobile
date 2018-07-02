@@ -55,10 +55,11 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
     RecyclerView myRecyclerView;
     @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout swiperefreshlayout;
+
+    private ForumListAdapter homeAdapter;
     private ArrayList<ListBean> list;
     private String title;
     private SharedPreferences sp;
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -78,13 +79,7 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
         // 获取分类数据
         getKindsData();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ForumListAdapter homeAdapter = new ForumListAdapter(this, list);
+        homeAdapter = new ForumListAdapter(this, list);
         if (myRecyclerView instanceof RecyclerView) {
             myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2);
@@ -137,6 +132,12 @@ public class PeopleForumListActivity extends AppCompatActivity implements Recycl
                                         )
                                 );
                             }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    homeAdapter.notifyDataSetChanged();
+                                }
+                            });
                         }
                     }
                 }

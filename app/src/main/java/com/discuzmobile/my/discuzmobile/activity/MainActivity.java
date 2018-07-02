@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
     @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout swiperefreshlayout;
 
+    private HomeAdapter homeAdapter;
     private static List<ListBean> list;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -114,13 +115,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
                 .bitmapTransform(new RoundedCornersTransformation(this, 20, 0))
                 .into(ivUserImg);
 
-        try {
-            Thread.sleep(600);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        HomeAdapter homeAdapter = new HomeAdapter(this, list);
+        homeAdapter = new HomeAdapter(this, list);
         if (myRecyclerView instanceof RecyclerView) {
             myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             myRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -156,15 +151,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemOnCli
                             for (KindBean kind : kinds) {
                                 list.add(new ListBean(kind.getKindId(), kind.getKindName(),
                                         kind.getKindImage()));
-                                SharedPreferences sp = getSharedPreferences("kind", Context.MODE_PRIVATE);
-                                SharedPreferences.Editor edit = sp.edit();
-                                //通过editor对象写入数据
-                                edit.putLong("kindId", kind.getKindId());
-                                edit.putString("kindName", kind.getKindName());
-                                edit.putString("kindImage", kind.getKindImage());
-                                //提交数据存入到xml文件中
-                                edit.commit();
+//                                SharedPreferences sp = getSharedPreferences("kind", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor edit = sp.edit();
+//                                //通过editor对象写入数据
+//                                edit.putLong("kindId", kind.getKindId());
+//                                edit.putString("kindName", kind.getKindName());
+//                                edit.putString("kindImage", kind.getKindImage());
+//                                //提交数据存入到xml文件中
+//                                edit.commit();
                             }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    homeAdapter.notifyDataSetChanged();
+                                }
+                            });
                         }
                     }
                 });

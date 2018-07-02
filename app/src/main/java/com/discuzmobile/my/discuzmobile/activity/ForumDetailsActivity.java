@@ -111,12 +111,6 @@ public class ForumDetailsActivity extends AppCompatActivity {
 
         nestedscrollview.smoothScrollTo(0, 20);
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         leaveWordAdapter = new LeaveWordAdapter(this, list);
         if (myRecyclerView instanceof RecyclerView) {
             myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -178,10 +172,9 @@ public class ForumDetailsActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         ApplicationToastUtil.showToastSimple("评论成功!");
+                                        leaveWordAdapter.notifyDataSetChanged();
                                     }
                                 });
-
-                                // TODO leaveWordAdapter.notifyItemRangeChanged();
                                 return;
                             }
                         }
@@ -231,6 +224,12 @@ public class ForumDetailsActivity extends AppCompatActivity {
                                         commentEntity.getReplyUser()
                                 ));
                             }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    leaveWordAdapter.notifyDataSetChanged();
+                                }
+                            });
                             return;
                         }
                     }

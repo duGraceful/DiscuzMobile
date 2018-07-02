@@ -21,8 +21,6 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -81,38 +79,36 @@ public class UserRegisterActivity extends AppCompatActivity {
                             public void onResponse(String response, int id) {
                                 ResponseBean responseBean = JsonUtils.getObject(response, ResponseBean.class);
                                 Log.i("LOGIN", "注册成功xznzm: " + responseBean.toString());
-                                if (responseBean != null) {
-                                    if (100 == responseBean.getCode()) {
-                                        Log.i("LOGIN", "注册成功: " + response);
-                                        String body = responseBean.getBody().toString();
+                                if (100 == responseBean.getCode()) {
+                                    Log.i("LOGIN", "注册成功: " + response);
+                                    String body = responseBean.getBody().toString();
 
-                                        UserBean userBean = new Gson().fromJson(body, UserBean.class);//将json字符串转换为json对象
+                                    UserBean userBean = new Gson().fromJson(body, UserBean.class);//将json字符串转换为json对象
 
-                                        Log.i("shuyu用户",userBean.toString());
+                                    Log.i("shuyu用户", userBean.toString());
 
-                                        sp = getSharedPreferences("User", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor edit = sp.edit();
-                                        //通过editor对象写入数据
-                                        edit.putLong("userId", userBean.getUserId());
-                                        edit.putString("email", userBean.getEmail());
-                                        edit.putString("userName", userBean.getUserName());
-                                        edit.putString("headPicture", userBean.getHeadPicture());
-                                        //提交数据存入到xml文件中
-                                        edit.commit();
+                                    sp = getSharedPreferences("User", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor edit = sp.edit();
+                                    //通过editor对象写入数据
+                                    edit.putLong("userId", userBean.getUserId());
+                                    edit.putString("email", userBean.getEmail());
+                                    edit.putString("userName", userBean.getUserName());
+                                    edit.putString("headPicture", userBean.getHeadPicture());
+                                    //提交数据存入到xml文件中
+                                    edit.commit();
 
-                                        Intent intent = new Intent(UserRegisterActivity.this, MainActivity.class);
-                                        // 跳转首页
-                                        startActivity(intent);
-                                        return;
-                                    } else {
-                                        final String msg = responseBean.getMsg();
-                                        runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                tvToast.setText("注册失败: " + msg);
-                                            }
-                                        });
-                                    }
+                                    Intent intent = new Intent(UserRegisterActivity.this, MainActivity.class);
+                                    // 跳转首页
+                                    startActivity(intent);
+                                    return;
+                                } else {
+                                    final String msg = responseBean.getMsg();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            tvToast.setText("注册失败: " + msg);
+                                        }
+                                    });
                                 }
                                 Log.e("LOGIN", "注册失败: " + response);
                             }
